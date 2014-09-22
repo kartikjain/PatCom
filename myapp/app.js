@@ -14,14 +14,15 @@ Ext.application({
     name: 'myapp',
 
     views: [
-        'Main'
+       'Menu','docList','formDoctor'
         
     ],
-   store: [
+   stores: [
         'docList'
     ],
-    models: [
-     'docList'],
+    models:
+     [ 'docList'],
+     controllers: ['Navigate'],
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -44,15 +45,18 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        if(!Ext.getStore('doclist'))
+       if(!Ext.getStore('docList'))
         {
             Ext.create('myapp.store.docList',{
-                storeId: 'docList'
+                storeId: 'docListStore'
+             
             })
+          //   Ext.getStore('docList').load();
+            //,console.log("hey screw you")
         }
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('myapp.view.Main'));
+        Ext.Viewport.add(Ext.create('myapp.view.Menu'));
     },
 
     onUpdated: function() {

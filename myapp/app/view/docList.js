@@ -1,25 +1,49 @@
+
 Ext.define('myapp.view.docList', {
-    extend: 'Ext.List',
-
+    extend: 'Ext.Panel',
     xtype: 'docList',
-    
+    id: 'docListView',
     config: {
-        title: 'docList',
-        itemId: 'docList',
-        
-        scrollable: 'vertical',
-
-        items: [
+            layout: {
+            type: 'vbox',
+            align: 'top'
+        },
+          
+            items: [
             {
-                xtype: 'list',
-                store: 'docList',
-                itemTpl: '<div><strong>{comment}</strong> {commentBy} </div>'
-               
-             }
-         ],
-        
-    },
+              xtype: 'titlebar',
+             docked: 'top',
+             width: '100%',
+             id: 'listTitle',
+             
+               items: [{
+                  xtype: 'button',
+                  id: 'backList',
+                  text: 'Back'
+            }]
+            },
+            {
 
-    
-    
-});
+                xtype: 'list',
+                width: '100%',
+                height: '100%',
+                id: 'listId',    
+               // scrollable: 'vertical',
+                store: 'docListStore',
+                itemTpl: new Ext.XTemplate(
+                      '<div width="100%">',
+                      '<div style="float:left;">{comment}</div>',
+                      '<div style="float:right;font-size:0.7em;color:#999999;">',
+                      '{user}',
+                      '</div>',
+                      '</div>'
+                )
+
+             }]
+    }
+})
+
+
+
+
+

@@ -1,46 +1,45 @@
 Ext.define('myapp.view.Menu', {
     extend: 'Ext.Panel',
     xtype: 'Menu',
-    
+    id: 'menuView',
     config: {
-        
         layout: {
-       
-        align: 'middle'
-                },
-        items: [
+            type: 'vbox',
+            align: 'top'
+        },
+        items: [{
+            xtype: 'titlebar',
+            docked: 'top',
+            width: '100%',
+            id: 'searchTitle',
+            title: 'PatCom'
+        },{
 
-            {
-            xtype: 'panel',
-            html: 'Please choose whether you want to view a doctors profile or give comments about a doctor'
-            },
-            
-            
-            
+            xtype: 'container',
+            width: '100%',
+            padding: '10',
+            defaults: {
+                xtype: 'button',
+                ui: 'round',
+                margin: '15 0'
+                            },
+            items: [
+                
                 {
-                    xtype: 'button',
-                    itemid: 'comment',
-                    text: 'Comment about a doctor',
-                    name: 'Comment about a doctor',
-                    margin: '50 50 150 50',
-                    height: 100,
-                    width: 500,
-                    
 
-                },
-                {
-                    xtype: 'button',
-                    itemid: 'view',
-                    text: 'view Comments about a doctor',
-                    name: 'view Comments about a doctor',
-                    margin: '150 50 50 50',
-                    height: 100,
-                    width: 500,
-                     
+                    id: 'commentOnDoctor',
+                    text: 'Give Comments ',
+                    name: 'Give Comments '
 
-                 },
-            
-            
-        ]
+                }, {
+
+                    id: 'viewDoctor',
+                    text: 'View Comments  ',
+                    name: 'View Comments '
+
+                }
+                
+            ]
+        }]
     }
 });
