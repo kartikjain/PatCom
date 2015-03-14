@@ -1,10 +1,11 @@
-var express = require('express');
+var express = require('express');require('dotenv').load();
 var http = require('http');
 var url = require('url');
 var bodyParser = require('body-parser');
 var app = express();
 var mysql = require('mysql');
 
+console.log(process.env.x);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
