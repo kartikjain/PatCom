@@ -43,8 +43,6 @@ requires: [
 			 }
 		}
   },
-
-// this is currently under testing
 	commentOnDoctorFunction: function()
 	{
 		Ext.getCmp('menuView').hide();
